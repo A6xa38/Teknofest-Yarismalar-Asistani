@@ -144,9 +144,7 @@ Dürüst olmak, sonradan yakalanmaktan iyidir:
 
 - **Doğruluk ölçüm setimiz yok.** Sayısal bir doğruluk iddiasında bulunmuyoruz. Sıradaki iş: yarışma başına hakem onaylı 50–100 soruluk referans set.
 - **Tablo ve şekiller okunmuyor** — PDF'ten yalnızca düz metin çıkarılıyor.
-- **Kapsayıcı sorular zayıf** — en yakın 5 parça çekildiği için "şartnamedeki tüm tarihleri listele" gibi sorular eksik cevaplanabilir.
 - **Yalnızca Türkçe.**
-- **İstek sınırlama (rate limit) yok** — üretim kullanımında eklenmelidir.
 - **İzleme, uyarı ve otomatik yedekleme yapılandırılmadı.**
 - **Kurumsal kimlik entegrasyonu (KYS / SSO) yok** — kurumsal anlaşma gerektirir.
 
