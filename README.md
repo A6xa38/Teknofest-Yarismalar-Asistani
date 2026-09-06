@@ -11,7 +11,7 @@ Takım: **Gazi Uzay** · Başvuru ID: **5393467**
 
 ## Neden
 
-2026 sezonunda Sabit Kanat kategorisinden elendik. Elenme gerekçesi görev videosuyla ilgili, şartnamede açıkça yazmayan bir kuraldı — ve o soruyu soracak tanımlı bir yer yoktu. Bu proje tam olarak o boşluğu kapatmak için yazıldı.
+Teknofest yarışmalarına katılan bir topluluk olarak sıkça karşılaştığımız sorunların başında gelen yetersiz bilgi ve gözden kaçan önemli detayların çözümü olarak bu site geliştirilmiştir. Yarışmacılar bilemediği veya gözünden kaçırdığı detaylar yüzünden uzun süre verdikleri emeğin karşılığını alamamaktadır. Ayrıca hakemlere yöneltilen sürekli aynı ve gereksiz soru yükünü de hafifletmek amaçlanmıştır.
 
 ## Ne yapar
 
