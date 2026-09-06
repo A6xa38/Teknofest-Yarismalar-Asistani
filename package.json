@@ -1,0 +1,45 @@
+{
+  "name": "iha-sss-chatbot",
+  "version": "0.1.0",
+  "private": true,
+  "description": "T3 Vakfı Yapay Zeka Creathonu - Problem 5: TEKNOFEST/İHA SSS ve Chatbot Asistanı (RAG tabanlı)",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "db:migrate:local": "wrangler d1 execute iha-sss-db --local --file=./scripts/schema.sql",
+    "db:migrate:remote": "wrangler d1 execute iha-sss-db --remote --file=./scripts/schema.sql",
+    "db:migrate-v2:local": "wrangler d1 execute iha-sss-db --local --file=./scripts/migration_v2.sql",
+    "db:migrate-v2:remote": "wrangler d1 execute iha-sss-db --remote --file=./scripts/migration_v2.sql",
+    "db:migrate-v3:local": "wrangler d1 execute iha-sss-db --local --file=./scripts/migration_v3.sql",
+    "db:migrate-v3:remote": "wrangler d1 execute iha-sss-db --remote --file=./scripts/migration_v3.sql",
+    "db:migrate-v4:local": "wrangler d1 execute iha-sss-db --local --file=./scripts/migration_v4.sql",
+    "db:migrate-v4:remote": "wrangler d1 execute iha-sss-db --remote --file=./scripts/migration_v4.sql",
+    "db:migrate-v5:local": "wrangler d1 execute iha-sss-db --local --file=./scripts/migration_v5.sql",
+    "db:migrate-v5:remote": "wrangler d1 execute iha-sss-db --remote --file=./scripts/migration_v5.sql",
+    "db:migrate-v6:local": "wrangler d1 execute iha-sss-db --local --file=./scripts/migration_v6.sql",
+    "db:migrate-v6:remote": "wrangler d1 execute iha-sss-db --remote --file=./scripts/migration_v6.sql",
+    "db:migrate-v7:remote": "wrangler d1 execute iha-sss-db --remote --file=./scripts/migration_v7.sql",
+    "db:migrate-v8:remote": "wrangler d1 execute iha-sss-db --remote --file=./scripts/migration_v8.sql",
+    "ingest": "node scripts/ingest.mjs",
+    "ingest:new": "node scripts/ingest.mjs chunks_new.json vectors_new.ndjson",
+    "vectorize:insert-new": "wrangler vectorize insert iha-sss-index --file=./knowledge/vectors_new.ndjson",
+    "vectorize:create": "wrangler vectorize create iha-sss-index --dimensions=1024 --metric=cosine",
+    "vectorize:create-metadata-index": "wrangler vectorize create-metadata-index iha-sss-index --property-name=competition_id --type=string",
+    "vectorize:delete": "wrangler vectorize delete iha-sss-index",
+    "vectorize:insert": "wrangler vectorize insert iha-sss-index --file=./knowledge/vectors.ndjson",
+    "r2:create": "wrangler r2 bucket create iha-sss-documents",
+    "db:migrate-v9:remote": "wrangler d1 execute iha-sss-db --remote --file=./scripts/migration_v9.sql",
+    "db:migrate-v10:remote": "wrangler d1 execute iha-sss-db --remote --file=./scripts/migration_v10.sql",
+    "db:migrate-v11:remote": "wrangler d1 execute iha-sss-db --remote --file=./scripts/migration_v11.sql",
+    "db:migrate-v12:remote": "wrangler d1 execute iha-sss-db --remote --file=./scripts/migration_v12.sql",
+    "db:migrate-v13:remote": "wrangler d1 execute iha-sss-db --remote --file=./scripts/migration_v13.sql"
+  },
+  "dependencies": {
+    "hono": "^4.6.0",
+    "unpdf": "^0.12.1"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^4.20241106.0",
+    "wrangler": "^3.90.0"
+  }
+}

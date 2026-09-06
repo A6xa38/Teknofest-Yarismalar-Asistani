@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>TEKNOFEST Yarışmalar Asistanı</title>
+<meta name="description" content="TEKNOFEST yarışmaları için sorularınızı yalnızca doğrulanmış resmi şartname ve kılavuzlardan, kaynağını göstererek yanıtlayan yapay zeka asistanı." />
+<meta name="theme-color" content="#001b48" />
+<script src="https://cdn.tailwindcss.com"></script>
+<!-- teknofest.org'un başlıklarındaki geniş, kalın sans-serif hissine yakın bir
+     font. Yüklenemezse otomatik olarak sistem fontuna düşer. -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+<style>
+  body {
+    font-family: 'Barlow', 'Segoe UI', ui-sans-serif, system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  h1, h2 { letter-spacing: -0.015em; }
+  ::selection { background: #ca310a; color: #fff; }
+
+  /* React/Tailwind CDN'den gelene kadar boş beyaz ekran görünmesin.
+     Tailwind'e bağlı olmayan, saf CSS bir açılış perdesi. */
+  #boot {
+    position: fixed; inset: 0; display: flex; flex-direction: column;
+    align-items: center; justify-content: center; gap: 14px; z-index: 50;
+    background: linear-gradient(165deg, #002d70 0%, #001b48 55%, #000d24 100%);
+    color: #fff; font-family: 'Barlow', 'Segoe UI', sans-serif;
+    transition: opacity .35s ease;
+  }
+  #boot .t { font-size: 15px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
+  #boot .s { font-size: 12px; color: rgba(255,255,255,.55); }
+  #boot .r {
+    width: 34px; height: 34px; border-radius: 50%;
+    border: 3px solid rgba(255,255,255,.18); border-top-color: #ca310a;
+    animation: bspin .8s linear infinite;
+  }
+  @keyframes bspin { to { transform: rotate(360deg); } }
+</style>
+</head>
+<body class="bg-[#eef2f7] text-slate-900">
+<div id="boot">
+  <div class="r"></div>
+  <div class="t">TEKNOFEST Yarışmalar Asistanı</div>
+  <div class="s">Yükleniyor…</div>
+</div>
+<div id="root"></div>
+
+<script type="importmap">
+{
+  "imports": {
+    "react": "https://esm.sh/react@18.3.1",
+    "react-dom/client": "https://esm.sh/react-dom@18.3.1/client",
+    "react/jsx-runtime": "https://esm.sh/react@18.3.1/jsx-runtime"
+  }
+}
+</script>
+<script type="module" src="/app.js?v=20260906e"></script>
+</body>
+</html>

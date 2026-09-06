@@ -1,0 +1,46 @@
+# Worker adı = workers.dev adresinin ilk parçası.
+# Adres: https://<name>.<hesap-alt-alan-adı>.workers.dev
+# "iha-sss-chatbot" yerine ürün adına yakın, nötr bir ad kullanıyoruz.
+name = "yarismalar-asistani"
+
+# Kendi alan adını (örn. www.yarismalarasistani.com) bağlamak için:
+#   1) Alan adını Cloudflare'e ekle (Registrar'dan al ya da nameserver'ları yönlendir)
+#   2) Aşağıdaki satırların yorumunu kaldır ve alan adını yaz:
+# [[routes]]
+# pattern = "www.ALAN-ADIN.com"
+# custom_domain = true
+main = "src/worker/index.ts"
+compatibility_date = "2024-11-01"
+compatibility_flags = ["nodejs_compat"]
+
+# Statik frontend (public/) worker ile aynı yerden servis edilir
+[assets]
+directory = "./public"
+binding = "ASSETS"
+
+# Workers AI - embedding + LLM cevap üretimi için
+[ai]
+binding = "AI"
+
+# D1 - kullanıcılar, talepler (soru/itiraz) tablosu
+# `wrangler d1 create iha-sss-db` çıktısındaki database_id (bu hesap için dolu).
+[[d1_databases]]
+binding = "DB"
+database_name = "iha-sss-db"
+database_id = "dde68ad2-100a-4dc0-b49e-ffad05c3752c"
+
+# Vectorize - şartname/kılavuz chunk embedding'lerinin arama indeksi
+# `npm run vectorize:create` ile oluştur
+[[vectorize]]
+binding = "VECTORIZE_INDEX"
+index_name = "iha-sss-index"
+
+# R2 - İçerik Yöneticisi'nin yüklediği ham şartname/kılavuz PDF'lerinin deposu
+# `wrangler r2 bucket create iha-sss-documents` çalıştırdıktan sonra ekle
+[[r2_buckets]]
+binding = "DOCS_BUCKET"
+bucket_name = "iha-sss-documents"
+
+# AUTH_SECRET wrangler.toml'a YAZILMAZ - gizli bir secret olarak eklenir:
+#   wrangler secret put AUTH_SECRET
+# (lokal test için .dev.vars dosyasına AUTH_SECRET=herhangi-uzun-bir-deger satırı ekleyebilirsin)
